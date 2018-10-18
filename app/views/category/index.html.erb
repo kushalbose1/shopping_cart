@@ -1,0 +1,17 @@
+<h1>Category#index</h1> 
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+ 
+  <% @category.each do |f| %>
+    <tr>
+      <td><%= f.category_name %></td>
+      <td><%= f.category_description %></td>
+      <td><%= link_to 'Show', category_path(category) %></td>
+      <td><%= link_to 'Edit', edit_category_path(category) %></td>
+    </tr>
+  <% end %>
+</table>
+<%= button_to ' newcategory', new_category_path, method: :get %>

@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181016094143) do
+ActiveRecord::Schema.define(version: 20181017112735) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "category_name"
+    t.string   "category_description"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
@@ -38,6 +45,7 @@ ActiveRecord::Schema.define(version: 20181016094143) do
     t.string   "user_type"
     t.integer  "pincode"
     t.integer  "mobile_number"
+    t.boolean  "admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
